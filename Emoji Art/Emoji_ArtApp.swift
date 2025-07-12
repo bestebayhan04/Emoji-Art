@@ -1,17 +1,21 @@
 //
-//  Emoji_ArtApp.swift
-//  Emoji Art
+//  EmojiArtApp.swift
+//  EmojiArt
 //
-//  Created by Beste Bayhan on 7/12/25.
+//  Created by Ruban on 2024-02-17.
 //
 
 import SwiftUI
 
 @main
-struct Emoji_ArtApp: App {
+struct EmojiArtApp: App {
+    @StateObject var defaultDocument = EmojiArtDocument()
+    @StateObject var paletteStore = PaletteStore(named: "Main")
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            EmojiArtDocumentView(document: defaultDocument)
+                .environmentObject(paletteStore)
         }
     }
 }
